@@ -24,7 +24,11 @@ export default function Slide1BG({ className }: props){
   }, []);
 
   return (
-    images.map((src, i) => (
+    <>
+
+      <div className="absolute inset-0 h-full w-full bg-black -z-30" />
+
+      {images.map((src, i) => (
         <img
             key={i}
             src={src}
@@ -36,6 +40,8 @@ export default function Slide1BG({ className }: props){
             )}
             alt={`Slide ${i + 1}`}
         />
-    ))
+      ))}
+    </>
+
   )
 }

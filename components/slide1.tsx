@@ -1,6 +1,6 @@
 "use client"
 
-import { comicRelief, lato, meowScript } from "@/lib/fonts";
+import { lato, meowScript } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import Slide1BG from "./slide1-bg";
 import { motion } from "motion/react";
@@ -14,13 +14,13 @@ export default function Slide1(){
             "w-full h-screen",
             "flex flex-col",
             "space-y-10",
-            "relative overflow-hidden"
+            "relative overflow-hidden",
         )}>
             <Slide1BG className={cn(
-                "absolute -z-10 inset-0",
+                "absolute inset-0",
                 "w-full h-full",
                 "brightness-80 blur-[2px]",
-                "object-cover object-center"
+                "object-cover object-center",
             )}/>
             
             <div className={cn(
@@ -32,7 +32,7 @@ export default function Slide1(){
                 <motion.div 
                     initial={{ translateY: -50, opacity: 0 }} 
                     animate={{ translateY: 0, opacity: 100 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <p className={cn(
                         "w-full",
@@ -46,7 +46,7 @@ export default function Slide1(){
                 <motion.div 
                     initial={{ translateY: 50, opacity: 0 }} 
                     animate={{ translateY: 0, opacity: 100 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <p className={cn(
                         "w-full",
@@ -60,7 +60,7 @@ export default function Slide1(){
                 <motion.div 
                     initial={{ translateY: 50, opacity: 0 }} 
                     animate={{ translateY: 0, opacity: 100 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 1, ease: "easeOut" }}
                     className="pt-4 pb-6"
                 >
                     <Button asChild className={cn(
@@ -75,7 +75,6 @@ export default function Slide1(){
                     </Button>
                 </motion.div>
             </div>
-
         </div>
     );
 }
