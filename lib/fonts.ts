@@ -18,11 +18,11 @@ export const meowScript = Meow_Script({
   variable: '--font-meow_script'
 })
 
-export const comicRelief = Comic_Relief({
-  weight: ['700'],     
-  display: 'swap',
-  variable: '--font-comic_relief'
-})
+// export const comicRelief = Comic_Relief({
+//   weight: ['700'],     
+//   display: 'swap',
+//   variable: '--font-comic_relief'
+// })
 
 export const lato = Lato({
   weight: ['900', '400'],     

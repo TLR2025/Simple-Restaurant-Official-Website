@@ -1,6 +1,6 @@
 import { lato, pacifico } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import Slide2BG from "./slide2-bg";
+import Slide2BG from "./grid-bg";
 import LinkButton from "./link-button";
 
 export default function Slide2(){
