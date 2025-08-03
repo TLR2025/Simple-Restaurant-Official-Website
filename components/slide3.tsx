@@ -13,7 +13,7 @@ export default function Slide3(){
             "relative"
         )} >
 
-            <Slide3Bg containerRef={containerRef} />
+            {/* <Slide3Bg containerRef={containerRef} /> */}
 
             <div className={cn(
                 "w-full h-full",

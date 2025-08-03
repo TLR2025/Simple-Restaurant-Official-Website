@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none`}
       >
-        {/* <FixedBg /> */}
+        <FixedBg />
         <TopBar />
         {children}
       </body>
