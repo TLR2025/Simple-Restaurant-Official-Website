@@ -4,6 +4,7 @@ import "./globals.css";
 import TopBar from "@/components/top-bar";
 import { ParallaxProvider } from "react-scroll-parallax";
 import FixedBg from "@/components/fixed-bg";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <FixedBg />
         <TopBar />
         {children}
+        <Footer />
       </body>
     </html>
   );

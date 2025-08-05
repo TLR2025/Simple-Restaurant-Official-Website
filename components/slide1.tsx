@@ -1,9 +1,6 @@
-"use client"
-
 import { lato, meowScript } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import Slide1BG from "./slide1-bg";
-import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { MENU_LINK } from "@/lib/links";
 import Link from "next/link";
@@ -29,10 +26,10 @@ export default function Slide1(){
                 "items-center justify-center",
                 "space-y-4"
             )}>
-                <motion.div 
-                    initial={{ translateY: -50, opacity: 0 }} 
-                    animate={{ translateY: 0, opacity: 100 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
+                <div 
+                    // initial={{ translateY: -50, opacity: 0 }} 
+                    // animate={{ translateY: 0, opacity: 100 }}
+                    // transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <p className={cn(
                         "w-full",
@@ -41,12 +38,12 @@ export default function Slide1(){
                     )}>
                         Welcome to
                     </p>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                    initial={{ translateY: 50, opacity: 0 }} 
-                    animate={{ translateY: 0, opacity: 100 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
+                <div 
+                    // initial={{ translateY: 50, opacity: 0 }} 
+                    // animate={{ translateY: 0, opacity: 100 }}
+                    // transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <p className={cn(
                         "w-full",
@@ -55,17 +52,17 @@ export default function Slide1(){
                     )}>
                         PATO PLACE
                     </p>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                    initial={{ translateY: 50, opacity: 0 }} 
-                    animate={{ translateY: 0, opacity: 100 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
+                <div 
+                    // initial={{ translateY: 50, opacity: 0 }} 
+                    // animate={{ translateY: 0, opacity: 100 }}
+                    // transition={{ duration: 1, ease: "easeOut" }}
                     className="pt-4 pb-6"
                 >
                     <Button asChild className={cn(
-                        "bg-white text-red-500 hover:bg-red-500 hover:text-white",
-                        "font-light text-sm",
+                        "bg-white text-red-600 hover:bg-red-500 hover:text-white",
+                        "text-sm",
                         "w-34 h-10",
                         "transition-all duration-300 ease-in-out",
                     )}>
@@ -73,7 +70,7 @@ export default function Slide1(){
                             LOOK MENU
                         </Link>
                     </Button>
-                </motion.div>
+                </div>
             </div>
         </div>
     );

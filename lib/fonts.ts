@@ -1,4 +1,4 @@
-import { Playwrite_AU_QLD, Pacifico, Meow_Script, Comic_Relief, Lato } from "next/font/google";
+import { Playwrite_AU_QLD, Pacifico, Meow_Script, Lato } from "next/font/google";
 
 export const playWrite = Playwrite_AU_QLD({
   weight: ['100', '400'],     
@@ -7,12 +7,14 @@ export const playWrite = Playwrite_AU_QLD({
 })
 
 export const pacifico = Pacifico({
+  subsets: ['latin'],
   weight: ['400'],     
   display: 'swap',
   variable: '--font-pacifico'
 })
 
 export const meowScript = Meow_Script({
+  subsets: ['latin'],
   weight: ['400'],     
   display: 'swap',
   variable: '--font-meow_script'
@@ -25,7 +27,8 @@ export const meowScript = Meow_Script({
 // })
 
 export const lato = Lato({
-  weight: ['900', '400'],     
+  subsets: ['latin'],
+  weight: ['900', '400'],
   display: 'swap',
   variable: '--font-lato'
 })

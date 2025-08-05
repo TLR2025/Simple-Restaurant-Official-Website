@@ -7,6 +7,9 @@ import Socials from "./socials";
 import Link from "next/link";
 import { ABOUT_LINK, BLOG_LINK, HOME_LINK, MENU_LINK } from "@/lib/links";
 import SideBarTrigger from "./side-bar-trigger";
+import Image from "next/image";
+import logo from "@/public/logo.png.webp";
+import logo2 from "@/public/logo2.png.webp";
 
 export default function TopBar(){
     const [atTop, setAtTop] = useState(true);
@@ -29,7 +32,7 @@ export default function TopBar(){
                 "pl-4",
                 "select-none"
             )}>
-                <img alt="logo" src={atTop?"/logo.png.webp":"logo2.png.webp"} />
+                <Image placeholder="blur" alt="logo" src={atTop?logo:logo2} />
             </div>
 
             <div className={cn(

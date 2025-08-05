@@ -2,6 +2,8 @@ import { lato, pacifico } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import Slide2BG from "./grid-bg";
 import LinkButton from "./link-button";
+import Image from "next/image";
+import dessertImg from "@/public/dessert.jpg";
 
 export default function Slide2(){
     return (
@@ -65,8 +67,9 @@ export default function Slide2(){
                     "overflow-hidden", 
                     "rounded-4xl"
                 )}>
-                    <img 
-                        src="/dessert.jpg" 
+                    <Image 
+                        placeholder="blur"
+                        src={dessertImg} 
                         alt="dessert" 
                         className={cn(
                             "object-cover object-center",

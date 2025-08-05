@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Article } from "@/types/article";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Props{
     article: Article,
@@ -22,10 +23,12 @@ export default function ArticleCard({ article, className }: Props){
                 "rounded-2xl"
             )}>
                 <Link href={article.href}>
-                    <img
+                    <Image
+                        width={5596}
+                        height={3731}
                         src={article.img}
-                        alt="image" 
-                        loading="eager"
+                        placeholder="empty"
+                        alt="image"
                         className={cn(
                             "object-cover object-center",
                             "w-full h-full",

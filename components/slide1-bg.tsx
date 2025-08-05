@@ -2,15 +2,19 @@
 
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import img1 from "@/public/steak1.jpg";
+import img2 from "@/public/restaurant1.jpg";
+import img3 from "@/public/steak2.jpg";
 
 interface props{
     className: string
 }
 
 const images = [
-    "/steak1.jpg",
-    "/restaurant1.jpg",
-    "/steak2.jpg"
+    img1,
+    img2,
+    img3,
 ];
 
 export default function Slide1BG({ className }: props){
@@ -29,7 +33,8 @@ export default function Slide1BG({ className }: props){
       <div className="absolute inset-0 h-full w-full bg-black -z-30" />
 
       {images.map((src, i) => (
-        <img
+        <Image
+            placeholder="blur"
             key={i}
             src={src}
             className={cn(
