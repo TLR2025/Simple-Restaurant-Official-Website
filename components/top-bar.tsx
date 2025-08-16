@@ -32,7 +32,9 @@ export default function TopBar(){
                 "pl-4",
                 "select-none"
             )}>
-                <Image placeholder="blur" alt="logo" src={atTop?logo:logo2} />
+                <Link href="/">
+                    <Image placeholder="blur" alt="logo" src={atTop?logo:logo2} />
+                </Link>
             </div>
 
             <div className={cn(
