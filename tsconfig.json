@@ -23,6 +23,6 @@
       "@payload-config": ["./payload.config.ts"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "scripts/payload-server.mjs"],
   "exclude": ["node_modules"]
 }

@@ -10,18 +10,25 @@ import SideBarTrigger from "./side-bar-trigger";
 import Image from "next/image";
 import logo from "@/public/logo.png.webp";
 import logo2 from "@/public/logo2.png.webp";
+import { usePathname } from "next/navigation";
 
 export default function TopBar(){
+    const path = usePathname();
     const [atTop, setAtTop] = useState(true);
     useEffect(() => {
+        // console.log(path)
+        if(path != "/") {
+            setAtTop(false);
+            return;
+        }
         const onScroll = () => setAtTop(window.scrollY < 20);
         onScroll();
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+    }, [path]);
     return (
         <div className={cn(
-            atTop ? "bg-transparent h-28 text-white" : "bg-white/90 h-20 md:h-24 text-black",
+            (atTop) ? "bg-transparent h-28 text-white" : "bg-white/90 h-20 md:h-24 text-black",
             "transition-all duration-500 ease-in-out",
             "fixed top-0 left-0 z-50",
             "w-full",
