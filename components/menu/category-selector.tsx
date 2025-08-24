@@ -1,0 +1,44 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
+import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+
+export default function CategorySelector({ categories }: { categories: any[] }) {
+    const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+    const pathName = usePathname();
+    const router = useRouter();
+    useEffect(() => {
+        const categorySlug = pathName.split("/")[2];
+        const category = categories.find(cat => cat.slug == categorySlug);
+        setSelectedCategory(category?.id || null);
+    }, [pathName, categories]);
+    return (
+        <div className={cn(
+            "flex flex-col items-center justify-center",
+            "w-16 h-full px-16",
+            "space-y-4",
+        )}>
+            {
+                categories?.map((category:any) => (
+                    <Button asChild key={category.id} className={cn(
+                        "h-8 w-30",
+                        "p-4",
+                        selectedCategory != category.id ?
+                            "bg-white text-gray-800 hover:bg-gray-200 hover:text-gray-800" :
+                            "bg-red-400 text-white hover:bg-red-500 hover:text-white",
+                        "rounded-lg shadow-md",
+                        "transition-all duration-200 ease-in-out",
+                    )}>
+                        <Link href={`/menu/${category.slug}`} >
+                            {category.name}
+                        </Link>
+                    </Button>
+                ))
+            }
+        </div>
+    );
+}

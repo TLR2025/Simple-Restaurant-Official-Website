@@ -1,0 +1,287 @@
+
+:root {
+  /* Variables */
+  --theme-bg: var(--theme-elevation-0);
+--theme-input-bg: var(--theme-elevation-0);
+--theme-text: var(--theme-elevation-800);
+--theme-overlay: rgba(5, 5, 5, 0.5);
+--font-body: 'Suisse Intl', system-ui;
+--font-mono: monospace;
+--font-serif: 'Merriweather', serif;
+--style-radius-s: 4px;
+--style-radius-m: 8px;
+--style-radius-l: 16px;
+--nav-width: 275px;
+
+  /* Color Shades */
+  --color-base-0: #ffffff;
+--color-base-50: #f3f8ee;
+--color-base-100: #e7f1dc;
+--color-base-150: #dbe9cb;
+--color-base-200: #cfe2ba;
+--color-base-250: #c3dba8;
+--color-base-300: #b7d497;
+--color-base-350: #abcc86;
+--color-base-400: #9fc575;
+--color-base-450: #93be63;
+--color-base-500: #4e9104;
+--color-base-550: #498604;
+--color-base-600: #437c03;
+--color-base-650: #3d7203;
+--color-base-700: #386703;
+--color-base-750: #325d02;
+--color-base-800: #2d5302;
+--color-base-850: #274802;
+--color-base-900: #223e02;
+--color-base-950: #1c3401;
+--color-success-0: #ffffff;
+--color-success-50: #feeefc;
+--color-success-100: #fddcf9;
+--color-success-150: #fccbf5;
+--color-success-200: #fbb9f2;
+--color-success-250: #faa8ef;
+--color-success-300: #f996ec;
+--color-success-350: #f885e8;
+--color-success-400: #f773e5;
+--color-success-450: #f662e2;
+--color-success-500: #e902c9;
+--color-success-550: #d802ba;
+--color-success-600: #c702ac;
+--color-success-650: #b7029e;
+--color-success-700: #a6018f;
+--color-success-750: #960181;
+--color-success-800: #850173;
+--color-success-850: #740164;
+--color-success-900: #640156;
+--color-success-950: #530148;
+--color-warning-0: #ffffff;
+--color-warning-50: #fff9ed;
+--color-warning-100: #fff3dc;
+--color-warning-150: #ffeeca;
+--color-warning-200: #ffe8b9;
+--color-warning-250: #ffe2a7;
+--color-warning-300: #ffdc95;
+--color-warning-350: #ffd684;
+--color-warning-400: #ffd172;
+--color-warning-450: #ffcb61;
+--color-warning-500: #f6a500;
+--color-warning-550: #e59900;
+--color-warning-600: #d38e00;
+--color-warning-650: #c18200;
+--color-warning-700: #b07600;
+--color-warning-750: #9e6a00;
+--color-warning-800: #8d5e00;
+--color-warning-850: #7b5300;
+--color-warning-900: #6a4700;
+--color-warning-950: #583b00;
+--color-error-0: #ffffff;
+--color-error-50: #fff3f1;
+--color-error-100: #ffe8e2;
+--color-error-150: #ffdcd4;
+--color-error-200: #ffd0c6;
+--color-error-250: #ffc5b8;
+--color-error-300: #ffb9a9;
+--color-error-350: #ffad9b;
+--color-error-400: #ffa28d;
+--color-error-450: #ff967f;
+--color-error-500: #f6532e;
+--color-error-550: #e54d2b;
+--color-error-600: #d34728;
+--color-error-650: #c14124;
+--color-error-700: #b03b21;
+--color-error-750: #9e351e;
+--color-error-800: #8d2f1a;
+--color-error-850: #7b2a17;
+--color-error-900: #6a2414;
+--color-error-950: #581e11;
+--color-accent-0: #ffffff;
+--color-accent-50: #fbedef;
+--color-accent-100: #f8dcdf;
+--color-accent-150: #f4cacf;
+--color-accent-200: #f1b9be;
+--color-accent-250: #eda7ae;
+--color-accent-300: #ea959e;
+--color-accent-350: #e6848e;
+--color-accent-400: #e3727e;
+--color-accent-450: #df616e;
+--color-accent-500: #c50014;
+--color-accent-550: #b70013;
+--color-accent-600: #a90011;
+--color-accent-650: #9b0010;
+--color-accent-700: #8d000e;
+--color-accent-750: #7f000d;
+--color-accent-800: #71000c;
+--color-accent-850: #62000a;
+--color-accent-900: #540009;
+--color-accent-950: #460007;
+
+  /* Theme Accent Colors */
+  --theme-accent-0: var(--color-accent-0);
+  --theme-accent-50: var(--color-accent-50);
+  --theme-accent-100: var(--color-accent-100);
+  --theme-accent-150: var(--color-accent-150);
+  --theme-accent-200: var(--color-accent-200);
+  --theme-accent-250: var(--color-accent-250);
+  --theme-accent-300: var(--color-accent-300);
+  --theme-accent-350: var(--color-accent-350);
+  --theme-accent-400: var(--color-accent-400);
+  --theme-accent-450: var(--color-accent-450);
+  --theme-accent-500: var(--color-accent-500);
+  --theme-accent-550: var(--color-accent-550);
+  --theme-accent-600: var(--color-accent-600);
+  --theme-accent-650: var(--color-accent-650);
+  --theme-accent-700: var(--color-accent-700);
+  --theme-accent-750: var(--color-accent-750);
+  --theme-accent-800: var(--color-accent-800);
+  --theme-accent-850: var(--color-accent-850);
+  --theme-accent-900: var(--color-accent-900);
+  --theme-accent-950: var(--color-accent-950);
+  --theme-accent-1000: var(--color-accent-1000);
+}
+
+/* Nav Button */
+.hamburger__wrapper {
+  background-color: var(--theme-elevation-100);
+border: 1px solid var(--theme-elevation-200);
+}
+.hamburger:before {
+  background-color: var(--theme-elevation-100);
+border: 1px solid var(--theme-elevation-200);
+}
+.hamburger:after {
+  background-color: var(--theme-elevation-100);
+border: 1px solid var(--theme-elevation-200);
+}
+
+/* Nav Group Toggle (empty) */
+.nav-group__toggle {}
+
+/* Nav Group Icon */
+.nav-group__indicator svg .stroke {
+  stroke: var(--theme-elevation-700);
+}
+
+/* Nav Group Label */
+.nav-group__label {
+  color: var(--theme-elevation-700);
+}
+
+/* Nav */
+.nav {
+  background-color: var(--theme-elevation-100);
+}
+
+/* Dashboard Card Labels */
+.dashboard__label {
+  fontFamily: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Dashboard Card */
+.card {
+  background-color: var(--theme-elevation-100);
+border: 1px solid var(--theme-elevation-200);
+}
+
+/* Dashboard Card Title */
+.card__title {
+  fontFamily: Impact;
+}
+
+/* Dashboard Card Action Button (empty) */
+.card__actions {}
+
+/* Background (empty) */
+.template-default__wrap {}
+
+/* Primary Button */
+.btn--style-primary {
+  background-color: var(--theme-elevation-900);
+}
+
+/* Pill (empty) */
+.pill {}
+
+/* Input Field */
+.field-type.text:not(.has-many) input {
+  border: 1px solid var(--theme-elevation-200);
+}
+
+/* Document Header (empty) */
+.doc-header__title {}
+
+/* Success Toast Close Button (empty) */
+.Toastify .Toastify__close-button--success {}
+
+/* Success Toast Progress Bar (empty) */
+.Toastify .Toastify__toast--success .Toastify__progress-bar {}
+
+/* Success Toast (empty) */
+.Toastify .Toastify__toast--success {}
+
+/* Success Toast Close Button (empty) */
+.Toastify .Toastify__close-button--error {}
+
+/* Success Toast Progress Bar (empty) */
+.Toastify .Toastify__toast--error .Toastify__progress-bar {}
+
+/* Success Toast (empty) */
+.Toastify .Toastify__toast--error {}
+
+/* Collapsible */
+.collapsible {
+  border-radius: 4px;
+}
+
+/* Collapsible Content */
+.collapsible__content {
+  background-color: var(--theme-elevation-0);
+}
+
+/* Collapsible Toggle */
+.collapsible--style-default > .collapsible__toggle-wrap .collapsible__toggle {
+  background-color: var(--theme-elevation-50);
+}
+
+/* Collapsible Style Default */
+.collapsible--style-default {
+  border: 1px solid var(--theme-elevation-200);
+}
+
+/* Table Row Odd */
+.table tbody tr:nth-child(odd) {
+  background-color: var(--theme-elevation-50);
+}
+
+/* Search Filter Wrapper (empty) */
+.list-controls__wrap {}
+
+/* Search  Input (empty) */
+.search-filter__input {}
+
+html[data-theme='dark'] {
+  /* Dark Theme Colors */
+  --theme-accent-0: var(--color-accent-900);
+  --theme-accent-50: var(--color-accent-850);
+  --theme-accent-100: var(--color-accent-800);
+  --theme-accent-150: var(--color-accent-750);
+  --theme-accent-200: var(--color-accent-700);
+  --theme-accent-250: var(--color-accent-650);
+  --theme-accent-300: var(--color-accent-600);
+  --theme-accent-350: var(--color-accent-550);
+  --theme-accent-400: var(--color-accent-450);
+  --theme-accent-450: var(--color-accent-400);
+  --theme-accent-550: var(--color-accent-350);
+  --theme-accent-600: var(--color-accent-300);
+  --theme-accent-650: var(--color-accent-250);
+  --theme-accent-700: var(--color-accent-200);
+  --theme-accent-750: var(--color-accent-150);
+  --theme-accent-800: var(--color-accent-100);
+  --theme-accent-850: var(--color-accent-50);
+  --theme-accent-900: var(--color-accent-0);
+  --theme-accent-950: var(--color-accent-0);
+  --theme-accent-1000: var(--color-accent-0);
+}
+
+.btn--style-primary.btn--disabled {
+  background-color: var(--color-base-100);
+}
