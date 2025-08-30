@@ -4,9 +4,15 @@ import { cn } from "@/lib/utils";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import Dishes from "@/components/menu/dishes";
+import Image from "next/image";
 
-export default async function MenuPage(){
-    const payload = await getPayload({ config });
+interface PageProps {
+  params: Promise<{ category: string }>; 
+}
+
+const payload = await getPayload({ config });
+
+export default async function MenuPage({ params }: PageProps){
     const categoriesData = await payload.find({
         collection: "categories",
         limit: 100,
@@ -19,21 +25,42 @@ export default async function MenuPage(){
         sort: "id",
     });
     const dishes = dishesData.docs as any[];
+    const category = (await params).category;
+    const currentCategoryData = categories.find((c) => c.slug === category);
+    // console.log(currentCategoryData);
     return (
         <div className={cn(
-            "h-screen",
-            "w-screen",
-            "pt-28",
-            "px-8",
-            "pb-8",
+            "h-screen w-screnn",
+            "pt-28 px-8 pb-8",
+            "relative",
+            "overflow-hidden"
         )}>
+            <div className={cn(
+                "absolute inset-0",
+                "-z-50",
+                "h-full w-full",
+                "overflow-hidden",
+                "select-none"
+            )}>
+                <Image
+                    fill
+                    src={currentCategoryData.image.url}
+                    alt={currentCategoryData.image.alt}
+                    placeholder="blur"
+                    blurDataURL={currentCategoryData.image.blurDataURL}
+                    className={cn(
+                        "object-cover object-center",
+                    )}
+                />
+            </div>
+
             <div className={cn(
                 "flex items-center justify-center",
                 "space-x-8",
                 "w-full h-full",
-                "bg-amber-100",
                 "rounded-lg shadow-lg",
-                "py-8"
+                "py-4",
+                "bg-amber-100/90",
             )}>
                 <CategorySelector categories={categories} />
                 <Dishes dishes={dishes} />

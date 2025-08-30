@@ -5,7 +5,6 @@ const afterChange: CollectionAfterChangeHook = async ({ doc }) => {
     await revalidatePath('/');
 }
 
-
 export const Review : CollectionConfig<"reviews"> = {
     slug: "reviews",
     fields: [

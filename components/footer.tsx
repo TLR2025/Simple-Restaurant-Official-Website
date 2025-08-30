@@ -8,7 +8,7 @@ export default function Footer(){
     return (
         <div className={cn(
             "w-full h-auto",
-            "px-8 md:px-24 py-8 md:py-12",
+            "px-8 md:px-24 py-8 md:py-14",
             "flex flex-row",
             "space-x-10",
             "items-start justify-between",

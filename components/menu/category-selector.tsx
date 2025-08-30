@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { meowScript, playWrite } from "@/lib/fonts";
 
 export default function CategorySelector({ categories }: { categories: any[] }) {
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
@@ -19,9 +20,16 @@ export default function CategorySelector({ categories }: { categories: any[] }) 
     return (
         <div className={cn(
             "flex flex-col items-center justify-center",
-            "w-16 h-full px-16",
+            "w-auto h-full px-8",
             "space-y-4",
+            "overflow-y-auto overflow-x-hidden",
         )}>
+            <p className={cn(
+                "text-md font-mono",
+            )}>
+                CATEGORIES:
+            </p>
+
             {
                 categories?.map((category:any) => (
                     <Button asChild key={category.id} className={cn(
@@ -32,6 +40,7 @@ export default function CategorySelector({ categories }: { categories: any[] }) 
                             "bg-red-400 text-white hover:bg-red-500 hover:text-white",
                         "rounded-lg shadow-md",
                         "transition-all duration-200 ease-in-out",
+                        "font-mono"
                     )}>
                         <Link href={`/menu/${category.slug}`} >
                             {category.name}

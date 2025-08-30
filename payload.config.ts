@@ -1,5 +1,9 @@
 import { buildConfig } from "payload";
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import {
+    lexicalEditor,
+    UploadFeature,
+    LinkFeature,
+} from '@payloadcms/richtext-lexical'
 import { postgresAdapter } from '@payloadcms/db-postgres';
 
 import { User } from "./payload-collections/user";
@@ -13,11 +17,19 @@ import { DefaultMenuCategorySlug } from "./payload-globals/default-menu-category
 import { MenuGridSize } from "./payload-globals/landing-page-menu-grid-size";
 
 import sharp from "sharp";
+import { About } from "./payload-globals/about";
+import { Metadata } from "./payload-collections/metadata";
 
 export default buildConfig({
     serverURL: process.env.PAYLOAD_SERVER_URL,
 
-    editor: lexicalEditor(),
+    editor: lexicalEditor({
+        features: ({ defaultFeatures, rootFeatures }) => [
+            ...defaultFeatures,
+            ...rootFeatures,
+            UploadFeature(),
+        ],
+    }),
 
     collections: [
         User,
@@ -26,11 +38,13 @@ export default buildConfig({
         Media,
         Dish,
         Category,
+        Metadata,
     ],
 
     globals: [
         DefaultMenuCategorySlug,
         MenuGridSize,
+        About,
     ],
 
     secret: process.env.PAYLOAD_SECRET || '',

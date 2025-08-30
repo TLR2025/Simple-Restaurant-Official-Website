@@ -7,6 +7,7 @@ const afterChange: GlobalAfterChangeHook = async ({ doc }) => {
 
 export const MenuGridSize : GlobalConfig = {
     slug: "menu-grid-size",
+    label: "(Landing Page) Menu Grid Size",
     fields: [
         {
             name: "width",

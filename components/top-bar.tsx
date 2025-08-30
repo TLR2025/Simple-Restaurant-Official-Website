@@ -17,7 +17,7 @@ export default function TopBar(){
     const [atTop, setAtTop] = useState(true);
     useEffect(() => {
         // console.log(path)
-        if(path != "/") {
+        if(path != "/" && path !="/about") {
             setAtTop(false);
             return;
         }
@@ -28,7 +28,7 @@ export default function TopBar(){
     }, [path]);
     return (
         <div className={cn(
-            (atTop) ? "bg-transparent h-28 text-white" : "bg-white/90 h-20 md:h-24 text-black",
+            (atTop) ? "bg-transparent h-28 text-white" : "bg-white/80 h-20 md:h-24 text-black",
             "transition-all duration-500 ease-in-out",
             "fixed top-0 left-0 z-50",
             "w-full",

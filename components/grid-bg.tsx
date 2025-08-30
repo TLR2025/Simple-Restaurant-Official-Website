@@ -1,11 +1,12 @@
 import { cn } from "@/lib/utils";
 
-export default function GridBg(){
+export default function GridBg({className}:{className?:string}){
     return (
         <div className={cn(
             "absolute inset-0 -z-10",
             "bg-white",
-            "h-full w-full"
+            "h-full w-full",
+            className
         )}>
             <div className={cn(
                 "w-full h-full",

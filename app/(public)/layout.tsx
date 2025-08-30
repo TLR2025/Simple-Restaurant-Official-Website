@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none overflow-x-hidden flex flex-col`}
       >
         <TopBar />
         {children}
