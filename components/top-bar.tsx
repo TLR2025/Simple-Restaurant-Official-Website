@@ -49,9 +49,8 @@ export default function TopBar(){
                 "flex items-center justify-end"
             )}>
                 <div className={cn(
-                    "flex",
                     "w-full",
-                    "hidden md:block"
+                    "hidden md:flex"
                 )}>
                     <Button variant="link" asChild className={cn(
                         atTop ? "text-white" : "text-black",

@@ -3,7 +3,11 @@ import { withPayload } from '@payloadcms/next/withPayload'
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['localhost'], // 允许从 localhost 加载图片
+    remotePatterns: [{
+      protocol: 'http',
+      hostname: 'localhost',
+      port: '3000',
+    }], 
   },
 };
 

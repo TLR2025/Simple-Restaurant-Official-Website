@@ -5,12 +5,19 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import Dishes from "@/components/menu/dishes";
 import Image from "next/image";
+import { Metadata } from "@/types/metadata";
 
 interface PageProps {
   params: Promise<{ category: string }>; 
 }
 
 const payload = await getPayload({ config });
+
+export async function generateMetadata() {
+    return {
+        title: "Menu - " + process.env.NEXT_PUBLIC_SITE_NAME,
+    } as Metadata;
+}
 
 export default async function MenuPage({ params }: PageProps){
     const categoriesData = await payload.find({
