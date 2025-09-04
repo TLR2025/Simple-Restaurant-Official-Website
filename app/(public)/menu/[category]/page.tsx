@@ -42,7 +42,7 @@ export default async function MenuPage({ params }: PageProps){
             "relative",
             "overflow-hidden"
         )}>
-            <div className={cn(
+            <figure className={cn(
                 "absolute inset-0",
                 "-z-50",
                 "h-full w-full",
@@ -57,9 +57,10 @@ export default async function MenuPage({ params }: PageProps){
                     blurDataURL={currentCategoryData.image.blurDataURL}
                     className={cn(
                         "object-cover object-center",
+                        "select-none"
                     )}
                 />
-            </div>
+            </figure>
 
             <div className={cn(
                 "flex items-center justify-center",

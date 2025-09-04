@@ -2,7 +2,6 @@
 
 import { lato, pacifico } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import Slide3Bg from "./slide3-bg";
 import { useRef } from "react";
 
 export default function Slide3(){
@@ -30,7 +29,7 @@ export default function Slide3(){
                     "text-white text-7xl text-center tracking-widest font-bold",
                     "pb-8"
                 )}>
-                    PATO SPACE
+                    TAVO SPACE
                 </div>
             </div>
         </div>

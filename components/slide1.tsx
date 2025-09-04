@@ -50,7 +50,7 @@ export default function Slide1(){
                         "text-8xl text-center text-white tracking-widest font-bold",
                         lato.className
                     )}>
-                        PATO PLACE
+                        TAVO PLACE
                     </p>
                 </div>
 

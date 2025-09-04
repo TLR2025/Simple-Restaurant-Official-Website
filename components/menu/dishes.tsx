@@ -55,10 +55,10 @@ export default function Dishes({dishes}: {dishes: any[]}) {
                                 )}>
                                     <p className={cn(
                                         "text-white",
-                                        "text-2xl md:text-3xl font-bold",
+                                        "text-[18px] md:text-3xl font-bold",
                                         "text-center",
                                         "opacity-75",
-                                        "lg:tracking-wider",
+                                        "tracking-tighter lg:tracking-wider",
                                         lato.className
                                     )} style={{
                                         textShadow:
@@ -78,12 +78,22 @@ export default function Dishes({dishes}: {dishes: any[]}) {
                                 >
                                     {dish.name}
                                 </Link>
+
                                 <p className={cn(
                                     "text-gray-500 text-sm mt-2 flex-1",
-                                    dish.isAvailable ? "" : "text-gray-400"
+                                    dish.isAvailable ? "" : "text-gray-400",
+                                    "hidden md:block"
                                 )}>
                                     {dish.description}
                                 </p>
+                                <p className={cn(
+                                    "text-gray-500 text-sm mt-2 flex-1",
+                                    dish.isAvailable ? "" : "text-gray-400",
+                                    "block md:hidden"
+                                )}>
+                                    {dish.description.length > 150 ? dish.description.substring(0, 150) + "..." : dish.description}
+                                </p>
+
                                 <div className="mt-4 flex items-center justify-between">
                                     <span className="text-primary font-bold text-base">
                                         ${dish.price}

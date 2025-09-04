@@ -1,8 +1,8 @@
 import { buildConfig } from "payload";
 import {
     lexicalEditor,
-    UploadFeature,
     LinkFeature,
+    UploadFeature,
 } from '@payloadcms/richtext-lexical'
 import { postgresAdapter } from '@payloadcms/db-postgres';
 
@@ -19,15 +19,20 @@ import { MenuGridSize } from "./payload-globals/landing-page-menu-grid-size";
 import sharp from "sharp";
 import { About } from "./payload-globals/about";
 import { Metadata } from "./payload-collections/metadata";
+import { SocialLinks } from "./payload-globals/social-links";
+import { Post } from "./payload-collections/post";
 
 export default buildConfig({
     serverURL: process.env.PAYLOAD_SERVER_URL,
 
     editor: lexicalEditor({
         features: ({ defaultFeatures, rootFeatures }) => [
-            ...defaultFeatures,
+            ...defaultFeatures.filter((value)=>{return value.key!=="relationship"}),
             ...rootFeatures,
             UploadFeature(),
+            LinkFeature({
+                enabledCollections: [],
+            }),
         ],
     }),
 
@@ -39,12 +44,14 @@ export default buildConfig({
         Dish,
         Category,
         Metadata,
+        Post,
     ],
 
     globals: [
         DefaultMenuCategorySlug,
         MenuGridSize,
         About,
+        SocialLinks,
     ],
 
     secret: process.env.PAYLOAD_SECRET || '',

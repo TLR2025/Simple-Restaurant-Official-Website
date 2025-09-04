@@ -8,8 +8,8 @@ import Link from "next/link";
 import { ABOUT_LINK, BLOG_LINK, HOME_LINK, MENU_LINK } from "@/lib/links";
 import SideBarTrigger from "./side-bar-trigger";
 import Image from "next/image";
-import logo from "@/public/logo.png.webp";
-import logo2 from "@/public/logo2.png.webp";
+import logo from "@/public/logo.png";
+import logo2 from "@/public/logo2.png";
 import { usePathname } from "next/navigation";
 
 export default function TopBar(){

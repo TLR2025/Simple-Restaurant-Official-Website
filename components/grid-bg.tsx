@@ -10,7 +10,7 @@ export default function GridBg({className}:{className?:string}){
         )}>
             <div className={cn(
                 "w-full h-full",
-                "bg-[url('/grid.png')] bg-repeat bg-[length:20px_20px]",
+                "bg-[url('/grid.png')] bg-repeat bg-[length:400px_400px]",
                 "opacity-20",
                 "blur-xs"
             )} />

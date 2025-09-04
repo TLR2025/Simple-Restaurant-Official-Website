@@ -49,7 +49,7 @@ export const Media : CollectionConfig<"media"> = {
     },
     admin: {
         useAsTitle: "alt",
-        defaultColumns: ["alt", "createdAt"],
+        defaultColumns: ["filename", "alt", "createdAt"],
     },
     access: {
         read: () => true,

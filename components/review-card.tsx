@@ -10,7 +10,7 @@ interface Props {
 export default function ReviewCard({ review }: Props) {
     return (
         <div className={cn(
-            "w-full lg:h-100",
+            "w-full h-[50vh] lg:h-100",
             "bg-amber-50",
             "rounded-2xl",
             "drop-shadow-gray-50 shadow-md",
