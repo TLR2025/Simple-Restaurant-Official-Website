@@ -3,8 +3,15 @@ import { cn } from "@/lib/utils";
 import { GiPositionMarker } from 'react-icons/gi';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
+import { getPayload } from "payload";
+import config from "@payload-config";
 
-export default function Footer(){
+export default async function Footer(){
+    const payload = await getPayload({config});
+    const footerData = await payload.findGlobal({
+        slug: "footer-data",
+    });
+    console.log(footerData);
     return (
         <div className={cn(
             "w-full h-auto",
@@ -39,7 +46,7 @@ export default function Footer(){
                             <div className="w-4 h-4">
                                 <GiPositionMarker size={20} />
                             </div>
-                            <span className="text-left">8th floor, 2321  West Virginia Avenue, Albany, New York</span>
+                            <span className="text-left">{footerData.contact.address}</span>
                         </div>
 
                         <div className={cn(
@@ -48,7 +55,7 @@ export default function Footer(){
                             <div className="w-4 h-4">
                                 <BsFillTelephoneFill size={16} />
                             </div>
-                            <span className="text-left">{"(+1) 96 123 456"}</span>
+                            <span className="text-left">{footerData.contact.phoneNumber}</span>
                         </div>
 
                         <div className={cn(
@@ -57,7 +64,7 @@ export default function Footer(){
                             <div className="w-4 h-4">
                                 <AiOutlineMail size={16} />
                             </div>
-                            <span className="text-left">{"example@example.com"}</span>
+                            <span className="text-left">{footerData.contact.email}</span>
                         </div>
                     </div>
                 </div>
@@ -81,13 +88,9 @@ export default function Footer(){
                         "items-start justify-start text-left",
                         lato.className
                     )}>
-                        <span>
-                            09:00 - 24:00
-                        </span>
-
-                        <span>
-                            Every Day
-                        </span>
+                        {footerData.openingTimes.map((it:{id:string, content:string}, index:number)=>(
+				<span key={index}>{it.content}</span>
+			))}
                     </div>
                 </div>
         </div>

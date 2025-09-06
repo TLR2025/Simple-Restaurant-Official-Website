@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { cn } from "@/lib/utils";
 import { getPayload } from "payload";
 import config from "@payload-config";

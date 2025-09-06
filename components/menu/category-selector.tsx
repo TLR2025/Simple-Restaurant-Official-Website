@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { meowScript, playWrite } from "@/lib/fonts";
 
 export default function CategorySelector({ categories }: { categories: any[] }) {
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);

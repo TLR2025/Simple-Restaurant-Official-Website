@@ -22,6 +22,7 @@ import { Metadata } from "./payload-collections/metadata";
 import { SocialLinks } from "./payload-globals/social-links";
 import { Post } from "./payload-collections/post";
 import { Tag } from "./payload-collections/tag";
+import { FooterData } from "./payload-globals/footer-data";
 
 export default buildConfig({
     serverURL: process.env.PAYLOAD_SERVER_URL,
@@ -54,6 +55,7 @@ export default buildConfig({
         MenuGridSize,
         About,
         SocialLinks,
+        FooterData,
     ],
 
     secret: process.env.PAYLOAD_SECRET || '',

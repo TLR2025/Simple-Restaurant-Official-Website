@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pato Place",
+  title: "Tavo Place",
   description: "",
 };
 

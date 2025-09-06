@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaInstagram } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Socials(){
     const [ socialLinks, setSocialLinks ] = useState<{instagram:string, facebook:string, twitter:string} | null>(null);

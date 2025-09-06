@@ -18,7 +18,7 @@ export default function TopBar(){
     const [atTop, setAtTop] = useState(true);
     useEffect(() => {
         // console.log(path)
-        if(path != "/" && path !="/about" && path=="/blog") {
+        if(path != "/" && path !="/about" && !path.startsWith("/blog/")) {
             setAtTop(false);
             return;
         }
