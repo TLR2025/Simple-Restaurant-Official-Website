@@ -25,7 +25,8 @@ export default async function AboutPage() {
     <div
       className={cn(
         "min-h-screen w-full",
-        "flex flex-col items-center pt-28 pb-16 px-4",
+        "flex flex-col items-center",
+        "pt-28 pb-16 px-4",
         "bg-gradient-to-b from-slate-500 via-slate-50 to-slate-200"
       )}
     >
@@ -33,8 +34,8 @@ export default async function AboutPage() {
       <h1
         className={cn(
           "text-6xl font-extrabold text-center tracking-wider",
-          "bg-gradient-to-r from-amber-500 to-orange-400 bg-clip-text text-transparent",
-          "text-shadow-md text-shadow-amber-400",
+          "text-amber-400",
+          "text-shadow-md text-shadow-gray-600",
           lato.className
         )}
       >

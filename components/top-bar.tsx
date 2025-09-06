@@ -14,10 +14,11 @@ import { usePathname } from "next/navigation";
 
 export default function TopBar(){
     const path = usePathname();
+    // console.log(path);
     const [atTop, setAtTop] = useState(true);
     useEffect(() => {
         // console.log(path)
-        if(path != "/" && path !="/about") {
+        if(path != "/" && path !="/about" && path=="/blog") {
             setAtTop(false);
             return;
         }

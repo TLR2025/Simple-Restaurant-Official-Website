@@ -2,6 +2,7 @@
 "use client";
 
 import { lato } from "@/lib/fonts";
+import { truncate } from "@/lib/truncate";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -91,7 +92,7 @@ export default function Dishes({dishes}: {dishes: any[]}) {
                                     dish.isAvailable ? "" : "text-gray-400",
                                     "block md:hidden"
                                 )}>
-                                    {dish.description.length > 150 ? dish.description.substring(0, 150) + "..." : dish.description}
+                                    {truncate(dish.description, 150)}                                
                                 </p>
 
                                 <div className="mt-4 flex items-center justify-between">
