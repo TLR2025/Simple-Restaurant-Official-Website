@@ -11,7 +11,7 @@ export default async function Footer(){
     const footerData = await payload.findGlobal({
         slug: "footer-data",
     });
-    console.log(footerData);
+    // console.log(footerData);
     return (
         <div className={cn(
             "w-full h-auto",

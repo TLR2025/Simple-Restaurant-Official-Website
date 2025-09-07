@@ -1,3 +1,4 @@
+import { authenticated } from "@/payload-access/authenticated";
 import { createSlugField } from "@/payload-fields/slug";
 import { CollectionConfig } from "payload";
 
@@ -23,7 +24,10 @@ export const User:CollectionConfig<"users"> = {
         createSlugField("username"),
     ],
     access:{
-        
+        read: authenticated,
+        create: authenticated,
+        update: authenticated,
+        delete: authenticated,
     },
     auth: true,
     admin: {

@@ -1,3 +1,4 @@
+import { authenticated } from "@/payload-access/authenticated";
 import { revalidatePath } from "next/cache";
 import { CollectionAfterChangeHook, CollectionConfig } from "payload";
 
@@ -45,5 +46,11 @@ export const Review : CollectionConfig<"reviews"> = {
     },
     hooks: {
         afterChange: [afterChange],
+    },
+    access:{
+        read: authenticated,
+        create: authenticated,
+        update: authenticated,
+        delete: authenticated,
     }
 }

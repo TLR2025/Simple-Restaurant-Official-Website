@@ -1,3 +1,5 @@
+import { anyone } from "@/payload-access/anyone";
+import { authenticated } from "@/payload-access/authenticated";
 import { revalidatePath } from "next/cache";
 import { GlobalAfterChangeHook, GlobalConfig } from "payload";
 
@@ -46,7 +48,11 @@ export const MenuGridSize : GlobalConfig = {
             }
         }
     ],
+    access: {
+        read: anyone,
+        update: authenticated,
+    },
     hooks: {
-        afterChange: [afterChange],
+        afterChange: [afterChange]
     }
 }

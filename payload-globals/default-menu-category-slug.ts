@@ -1,3 +1,5 @@
+import { anyone } from "@/payload-access/anyone";
+import { authenticated } from "@/payload-access/authenticated";
 import { revalidatePath } from "next/cache";
 import { GlobalAfterChangeHook, GlobalConfig } from "payload";
 
@@ -19,7 +21,8 @@ export const DefaultMenuCategorySlug:GlobalConfig = {
         }
     ],
     access: {
-        read: () => true,
+        read: anyone,
+        update: authenticated,
     },
     hooks: {
         afterChange: [afterChange],

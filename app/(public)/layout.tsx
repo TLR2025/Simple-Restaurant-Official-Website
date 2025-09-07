@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Tavo Place",
   description: "",
+  icons: '/favicon.png',
 };
 
 export default function RootLayout({

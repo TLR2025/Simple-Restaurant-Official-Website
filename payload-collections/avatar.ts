@@ -1,3 +1,5 @@
+import { anyone } from "@/payload-access/anyone";
+import { authenticated } from "@/payload-access/authenticated";
 import path from "path";
 import { CollectionConfig } from "payload";
 import { fileURLToPath } from "url";
@@ -37,6 +39,9 @@ export const Avatar : CollectionConfig<"avatars"> = {
         adminThumbnail: 'thumbnail',
     },
     access: {
-        read: () => true,
+        read: anyone,
+        create: authenticated,
+        update: authenticated,
+        delete: authenticated,
     }
 }   

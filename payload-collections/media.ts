@@ -2,6 +2,8 @@ import { createSlugField } from "@/payload-fields/slug";
 import { CollectionConfig } from "payload";
 import { fileURLToPath } from "url";
 import path from "path";
+import { anyone } from "@/payload-access/anyone";
+import { authenticated } from "@/payload-access/authenticated";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename); // Current directory of this file
@@ -52,7 +54,10 @@ export const Media : CollectionConfig<"media"> = {
         defaultColumns: ["filename", "alt", "createdAt"],
     },
     access: {
-        read: () => true,
+        read: anyone,
+        create: authenticated,
+        update: authenticated,
+        delete: authenticated,
     },
     hooks: {
         afterChange: [

@@ -1,3 +1,5 @@
+import { anyone } from "@/payload-access/anyone";
+import { authenticated } from "@/payload-access/authenticated";
 import { createSlugField } from "@/payload-fields/slug";
 import { revalidatePath } from "next/cache";
 import { CollectionAfterChangeHook, CollectionConfig } from "payload";
@@ -128,7 +130,10 @@ export const Category : CollectionConfig<"categories"> = {
         useAsTitle: "name",
     },
     access: {
-        read: () => true,
+        read: anyone,
+        create: authenticated,
+        update: authenticated,
+        delete: authenticated,
     },
     hooks: {
         afterChange: [afterChange],
