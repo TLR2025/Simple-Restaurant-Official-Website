@@ -10,9 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "^3.52.0",
-    "@payloadcms/next": "^3.52.0",
-    "@payloadcms/richtext-lexical": "^3.52.0",
+    "@payloadcms/db-postgres": "^3.55.0",
+    "@payloadcms/next": "^3.55.0",
+    "@payloadcms/richtext-lexical": "^3.55.0",
+    "@payloadcms/storage-vercel-blob": "^3.55.0",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-popover": "^1.1.15",
@@ -27,6 +28,7 @@
     "lucide-react": "^0.533.0",
     "motion": "^12.23.11",
     "next": "15.4.4",
+    "npm": "^11.6.0",
     "payload": "^3.52.0",
     "react": "19.1.0",
     "react-colorful": "^5.6.1",

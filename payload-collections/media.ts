@@ -1,12 +1,12 @@
 import { createSlugField } from "@/payload-fields/slug";
 import { CollectionConfig } from "payload";
-import { fileURLToPath } from "url";
-import path from "path";
+// import { fileURLToPath } from "url";
+// import path from "path";
 import { anyone } from "@/payload-access/anyone";
 import { authenticated } from "@/payload-access/authenticated";
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename); // Current directory of this file
+// const filename = fileURLToPath(import.meta.url);
+// const dirname = path.dirname(filename); // Current directory of this file
 
 async function urlToBase64(url:string): Promise<string> {
     const res = await fetch(url);
@@ -39,7 +39,7 @@ export const Media : CollectionConfig<"media"> = {
         },
     ],
     upload: {
-        staticDir: path.resolve(dirname, '../public/media'),
+        // staticDir: path.resolve(dirname, '../public/media'),
         mimeTypes: ['image/*'],
         imageSizes: [
             {

@@ -18,7 +18,7 @@ export const Avatar : CollectionConfig<"avatars"> = {
         }
     ],
     upload: {
-        staticDir: path.resolve(dirname, '../public/avatars'),
+        // staticDir: path.resolve(dirname, '../public/avatars'),
         mimeTypes: ['image/*'],
         imageSizes: [
             {

@@ -1,9 +1,11 @@
+import sharp from "sharp";
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { buildConfig } from "payload";
 import {
     lexicalEditor,
     LinkFeature,
     UploadFeature,
-} from '@payloadcms/richtext-lexical'
+} from '@payloadcms/richtext-lexical';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 
 import { User } from "./payload-collections/user";
@@ -16,7 +18,6 @@ import { Category } from "./payload-collections/category";
 import { DefaultMenuCategorySlug } from "./payload-globals/default-menu-category-slug";
 import { MenuGridSize } from "./payload-globals/landing-page-menu-grid-size";
 
-import sharp from "sharp";
 import { About } from "./payload-globals/about";
 import { Metadata } from "./payload-collections/metadata";
 import { SocialLinks } from "./payload-globals/social-links";
@@ -67,4 +68,23 @@ export default buildConfig({
     }),
 
     sharp: sharp,
+
+    plugins: [
+        vercelBlobStorage({
+            enabled: true, // Optional, defaults to true
+            // Specify which collections should use Vercel Blob
+            collections: {
+                media: {
+                    prefix: "media",
+                },
+                avatars: {
+                    prefix: "avatars",
+                }
+            },
+            // Token provided by Vercel once Blob storage is added to your Vercel project
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+            addRandomSuffix: true,
+            cacheControlMaxAge: 30*24*60*60,
+        }),
+    ]
 });
