@@ -11,6 +11,9 @@ import { authenticated } from "@/payload-access/authenticated";
 async function urlToBase64(url:string): Promise<string> {
     const res = await fetch(url);
 
+    // console.log("res:");
+    // console.log(res);
+
     const arrayBuffer = await res.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const mime = res.headers.get("content-type") || "image/jpeg";
@@ -66,7 +69,7 @@ export const Media : CollectionConfig<"media"> = {
 
                 const thumbnailUrl = doc.sizes?.thumbnail?.url;
                 // console.debug(thumbnailUrl);
-                if (thumbnailUrl && !doc.blurDataURL) {
+                if (thumbnailUrl) {
                     const blurDataURL = await urlToBase64(
                         thumbnailUrl
                     );

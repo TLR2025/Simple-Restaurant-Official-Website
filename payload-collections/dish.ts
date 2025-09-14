@@ -65,6 +65,7 @@ export const Dish:CollectionConfig<"dishes"> = {
     ],
     admin: {
         defaultColumns: ["image", "name", "price", "category", "isAvailable"],
+        useAsTitle: "name",
     },
     hooks: {
         afterChange: [afterChange],

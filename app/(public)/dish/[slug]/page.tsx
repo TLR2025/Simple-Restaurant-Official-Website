@@ -64,7 +64,7 @@ export default async function DishDetails({ params }: PageProps) {
         <div
             className={cn(
                 "w-screen min-h-screen", // 尺寸与容器
-                "pt-20 px-4 pb-8", // 上边距 20 + 内边距
+                "pt-24 px-4 pb-8", // 上边距 20 + 内边距
                 "flex items-center justify-center", // 居中对齐
                 // "lg:scale-110",
                 "bg-amber-100",
@@ -73,7 +73,7 @@ export default async function DishDetails({ params }: PageProps) {
                 className={cn(
                     "rounded-lg shadow-lg overflow-hidden", // 外观
                     "flex flex-col md:flex-row", // 响应式布局
-                    "w-full max-w-5xl h-96", // 最大宽度
+                    "w-full max-w-5xl h-auto md:h-96", // 最大宽度
                     "relative z-0"
                 )}
             >

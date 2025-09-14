@@ -13,8 +13,8 @@ export default function CategorySelector({ categories }: { categories: any[] }) 
     const router = useRouter();
     useEffect(() => {
         const categorySlug = pathName.split("/")[2];
-        const category = categories.find(cat => cat.slug == categorySlug);
-        setSelectedCategory(category?.id || null);
+        const category = categories.find(cat => cat.category.slug == categorySlug);
+        setSelectedCategory(category.category.id || null);
     }, [pathName, categories]);
     return (
         <div className={cn(
@@ -24,25 +24,25 @@ export default function CategorySelector({ categories }: { categories: any[] }) 
             "overflow-y-auto overflow-x-hidden",
         )}>
             <p className={cn(
-                "text-md font-mono",
+                "text-sm md:text-md font-mono",
             )}>
                 CATEGORIES:
             </p>
 
             {
                 categories?.map((category:any) => (
-                    <Button asChild key={category.id} className={cn(
-                        "h-8 w-30",
+                    <Button asChild key={category.category.id} className={cn(
+                        "h-8 w-20 md:w-30",
                         "p-4",
-                        selectedCategory != category.id ?
+                        selectedCategory != category.category.id ?
                             "bg-white text-gray-800 hover:bg-gray-200 hover:text-gray-800" :
                             "bg-red-400 text-white hover:bg-red-500 hover:text-white",
                         "rounded-lg shadow-md",
                         "transition-all duration-200 ease-in-out",
                         "font-mono"
                     )}>
-                        <Link href={`/menu/${category.slug}`} >
-                            {category.name}
+                        <Link href={`/menu/${category.category.slug}`} >
+                            {category.category.name}
                         </Link>
                     </Button>
                 ))

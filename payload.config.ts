@@ -15,7 +15,6 @@ import { Media } from "./payload-collections/media";
 import { Dish } from "./payload-collections/dish";
 import { Category } from "./payload-collections/category";
 
-import { DefaultMenuCategorySlug } from "./payload-globals/default-menu-category-slug";
 import { MenuGridSize } from "./payload-globals/landing-page-menu-grid-size";
 
 import { About } from "./payload-globals/about";
@@ -24,6 +23,7 @@ import { SocialLinks } from "./payload-globals/social-links";
 import { Post } from "./payload-collections/post";
 import { Tag } from "./payload-collections/tag";
 import { FooterData } from "./payload-globals/footer-data";
+import { CategoryList } from "./payload-globals/categoriy-list";
 
 export default buildConfig({
     serverURL: process.env.PAYLOAD_SERVER_URL,
@@ -52,7 +52,7 @@ export default buildConfig({
     ],
 
     globals: [
-        DefaultMenuCategorySlug,
+        CategoryList,
         MenuGridSize,
         About,
         SocialLinks,
@@ -64,7 +64,8 @@ export default buildConfig({
         push: true,
         pool: {
             connectionString: process.env.DATABASE_URL || '',
-        }
+            max: 5,
+        },
     }),
 
     sharp: sharp,
@@ -74,16 +75,11 @@ export default buildConfig({
             enabled: true, // Optional, defaults to true
             // Specify which collections should use Vercel Blob
             collections: {
-                media: {
-                    prefix: "media",
-                },
-                avatars: {
-                    prefix: "avatars",
-                }
+                media: {},
+                avatars: {},
             },
             // Token provided by Vercel once Blob storage is added to your Vercel project
             token: process.env.BLOB_READ_WRITE_TOKEN,
-            addRandomSuffix: true,
             cacheControlMaxAge: 30*24*60*60,
         }),
     ]

@@ -54,7 +54,7 @@ export default async function PostPage({params}:PageProps) {
     if(!postData || !postData.docs || !postData.docs[0] || !postData.docs[0].published)
         notFound();
     const post = postData.docs[0];
-    // console.log(post);
+    console.log(post);
     return (
         <div className={cn(
             "pt-32 px-16 md:px-24 pb-16",
@@ -73,7 +73,7 @@ export default async function PostPage({params}:PageProps) {
                     lato.className
                 )}
                 style={{
-                    color: lightenHexColor(post.vision.themeColor, 80)
+                    color: lightenHexColor(post.vision.themeColor, 100)
                 }}
             >
                 {post.title}

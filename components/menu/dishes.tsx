@@ -13,7 +13,7 @@ export default function Dishes({dishes}: {dishes: any[]}) {
     const pathName = usePathname();
     return (
         <div className={cn(
-            "h-full w-3/4",
+            "h-full w-13/16",
             "[mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
         )}>
             <div className={cn(
@@ -42,7 +42,7 @@ export default function Dishes({dishes}: {dishes: any[]}) {
                                     alt={dish.image.alt}
                                     className={cn(
                                         "object-cover w-full h-full rounded-t-xl",
-                                        dish.isAvailable ? "" : "grayscale-75",
+                                        dish.isAvailable ? "" : "grayscale-75 opacity-50",
                                     )}
                                     loading="lazy"
                                     placeholder="blur"
@@ -58,13 +58,10 @@ export default function Dishes({dishes}: {dishes: any[]}) {
                                         "text-white",
                                         "text-[18px] md:text-3xl font-bold",
                                         "text-center",
-                                        "opacity-75",
                                         "tracking-tighter lg:tracking-wider",
+                                        "text-shadow-2xs",
                                         lato.className
-                                    )} style={{
-                                        textShadow:
-                                        '-2px -2px 0 #AAA, 2px -2px 0 #AAA, -2px 2px 0 #AAA, 2px 2px 0 #AAA'
-                                    }}>
+                                    )} >
                                         UNAVAILABLE
                                     </p>
                                 </div>

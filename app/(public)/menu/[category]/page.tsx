@@ -20,12 +20,18 @@ export async function generateMetadata() {
 }
 
 export default async function MenuPage({ params }: PageProps){
-    const categoriesData = await payload.find({
-        collection: "categories",
-        limit: 100,
-        sort: "id",
+    // const categoriesData = await payload.find({
+    //     collection: "categories",
+    //     limit: 100,
+    //     sort: "id",
+    // });
+    // const categories = categoriesData.docs as any[];
+    const categoriesData = await payload.findGlobal({
+        slug: "category-list",
+        depth: 5,
     });
-    const categories = categoriesData.docs as any[];
+    const categories = categoriesData.categories as any;
+    // console.log(categories[0]);
     const dishesData = await payload.find({
         collection: "dishes",
         limit: 999,
@@ -33,21 +39,23 @@ export default async function MenuPage({ params }: PageProps){
     });
     const dishes = dishesData.docs as any[];
     const category = (await params).category;
-    const currentCategoryData = categories.find((c) => c.slug === category);
+    const currentCategoryData = (categories.find((c:any) => c.category.slug === category)).category;
     // console.log(currentCategoryData);
     return (
         <div className={cn(
             "h-screen w-screnn",
-            "pt-28 px-8 pb-8",
+            "pt-28 md:px-8 md:pb-8",
             "relative",
-            "overflow-hidden"
+            "overflow-hidden",
+            "bg-amber-100 md:bg-transparent",
         )}>
             <figure className={cn(
                 "absolute inset-0",
                 "-z-50",
                 "h-full w-full",
                 "overflow-hidden",
-                "select-none"
+                "select-none",
+                "hidden md:block",
             )}>
                 <Image
                     fill
@@ -66,9 +74,9 @@ export default async function MenuPage({ params }: PageProps){
                 "flex items-center justify-center",
                 "space-x-8",
                 "w-full h-full",
-                "rounded-lg shadow-lg",
+                "md:rounded-lg md:shadow-lg",
                 "py-4",
-                "bg-amber-100/90",
+                "md:bg-amber-100/90",
             )}>
                 <CategorySelector categories={categories} />
                 <Dishes dishes={dishes} />

@@ -5,20 +5,14 @@ import config from "@payload-config";
 
 export async function getDefaultCategory() {
     const payload = await getPayload({config});
-    const defaultCategorySlug = await payload.findGlobal({
-        slug: "default-menu-category-slug",
-        depth: 0,
+    const categoryList = await payload.findGlobal({
+        slug: "category-list",
+        depth: 5,
     });
-    if (!defaultCategorySlug) {
+    // console.log(categoryList);
+    if (!categoryList) {
         throw new Error("Default category slug not found");
     } else {
-        const category = await payload.findByID({
-            collection: "categories",
-            id: defaultCategorySlug.category,
-        });
-        if (!category) {
-            throw new Error("Default category not found");
-        }
-        return category.slug;
+        return categoryList.categories[0].category.slug;
     }
 }

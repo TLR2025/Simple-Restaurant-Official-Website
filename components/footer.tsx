@@ -16,19 +16,19 @@ export default async function Footer(){
         <div className={cn(
             "w-full h-auto",
             "px-8 md:px-24 py-8 md:py-14",
-            "flex flex-row",
-            "space-x-10",
-            "items-start justify-between",
+            "flex flex-col md:flex-row",
+            "space-y-10 md:space-y-0 md:space-x-10",
+            "items-center md:items-start justify-between",
             "bg-gray-900",
         )}>
                 <div className={cn(
-                    "flex flex-col space-y-8",
-                    "text-left",
-                    "w-1/2"
+                    "flex flex-col space-y-4 md:space-y-8",
+                    "text-center md:text-left",
+                    "w-full md:w-1/2"
                 )}>
                     <div className={cn(
                         "text-lg text-white tracking-widest",
-                        "text-left",
+                        "text-center md:text-left",
                         lato.className
                     )}>
                         CONTACT US
@@ -37,7 +37,8 @@ export default async function Footer(){
                     <div className={cn(
                         "text-[16px] text-gray-400 tracking-wider",
                         "flex flex-col space-y-5",
-                        "items-start justify-start text-left",
+                        "items-center justify-center text-center",
+                        "md:items-start md:justify-start md:text-left",
                         lato.className
                     )}>
                         <div className={cn(
@@ -70,13 +71,13 @@ export default async function Footer(){
                 </div>
 
                 <div className={cn(
-                    "flex flex-col space-y-8",
-                    "text-left",
-                    "w-1/2"
+                    "flex flex-col space-y-4 md:space-y-8",
+                    "text-center md:text-left",
+                    "w-full md:w-1/2"
                 )}>
                     <div className={cn(
                         "text-lg text-white tracking-widest",
-                        "text-left",
+                        "text-center md:text-left",
                         lato.className
                     )}>
                         OPENING TIMES
@@ -85,12 +86,13 @@ export default async function Footer(){
                     <div className={cn(
                         "text-[16px] text-gray-400 tracking-wider",
                         "flex flex-col space-y-2",
-                        "items-start justify-start text-left",
+                        "items-center justify-center text-center",
+                        "md:items-start md:justify-start md:text-left",
                         lato.className
                     )}>
                         {footerData.openingTimes.map((it:{id:string, content:string}, index:number)=>(
-				<span key={index}>{it.content}</span>
-			))}
+                            <span key={index}>{it.content}</span>
+                        ))}
                     </div>
                 </div>
         </div>
