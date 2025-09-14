@@ -22,6 +22,12 @@ export const User:CollectionConfig<"users"> = {
             })
         },
         createSlugField("username"),
+        {
+            name: "avatar",
+            label: "Avatar",
+            type: "upload",
+            relationTo: "avatars",
+        }
     ],
     access:{
         read: authenticated,

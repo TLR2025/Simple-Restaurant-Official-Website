@@ -1,8 +1,32 @@
 import { authenticated } from "@/payload-access/authenticated";
+import { author } from "@/payload-fields/author";
 import { metadata } from "@/payload-fields/metadata";
 import { createSlugField, format } from "@/payload-fields/slug";
 import { revalidatePath } from "next/cache";
 import { CollectionAfterChangeHook, CollectionConfig } from "payload";
+
+const afterChange_author:CollectionAfterChangeHook = async ({doc, req}) => {
+    if(req.context?.skipGenAuthor) return;
+    const userId = req.user?.id!;
+    const author = (await req.payload.findByID({
+        collection: "users",
+        id: userId,
+    }));
+    // console.log(author);
+    await req.payload.update({
+        req: req,
+        context: {skipGenAuthor: true},
+        collection: "posts",
+        id: doc.id,
+        data: {
+            author: {
+                avatar: author.avatar,
+                name: author.username,
+                slug: author.slug,
+            },
+        }
+    })
+}
 
 const afterChange_genTempTitle:CollectionAfterChangeHook = async ({doc, req}) => {
     if(req.context?.skipGenTempTitle) return;
@@ -84,12 +108,13 @@ export const Post:CollectionConfig = {
             }
         },
         createSlugField("title"),
+        author,
     ],
     admin: {
         useAsTitle: "title",
     },
     hooks: {
-        afterChange: [afterChange_genTempTitle, afterChange_cache],
+        afterChange: [afterChange_author, afterChange_genTempTitle, afterChange_cache],
     },
     access: {
         read: authenticated,

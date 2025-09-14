@@ -10,5 +10,9 @@ export function lightenHexColor(hex:string, percent:number) {
   g = Math.min(255, Math.round(g + (255 - g) * (percent / 100)));
   b = Math.min(255, Math.round(b + (255 - b) * (percent / 100)));
 
+  r = Math.max(0, r);
+  g = Math.max(0, g);
+  b = Math.max(0, b);
+
   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
