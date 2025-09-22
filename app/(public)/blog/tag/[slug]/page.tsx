@@ -137,7 +137,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
               No posts found
             </h2>
             <p className="mt-2 text-gray-500">
-              There are no posts tagged with "{tag.tagName}" yet.
+              There are no posts tagged with &quot;{tag.tagName}&quot; yet.
             </p>
           </div>
         )}

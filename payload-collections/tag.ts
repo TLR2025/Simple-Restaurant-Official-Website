@@ -1,6 +1,11 @@
+import { revalidateAllPages } from "@/lib/revalidate-all-pages";
 import { authenticated } from "@/payload-access/authenticated";
 import { createSlugField } from "@/payload-fields/slug";
-import { CollectionConfig } from "payload";
+import { CollectionAfterChangeHook, CollectionConfig } from "payload";
+
+const afterChange:CollectionAfterChangeHook = async () => {
+    await revalidateAllPages();
+}
 
 export const Tag:CollectionConfig = {
     slug: "tags",
@@ -24,5 +29,8 @@ export const Tag:CollectionConfig = {
         create: authenticated,
         update: authenticated,
         delete: authenticated,
+    },
+    hooks: {
+        afterChange: [afterChange],
     }
 }
